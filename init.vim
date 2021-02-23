@@ -20,6 +20,7 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 let mapleader = " "
+let maplocalleader=","
 
 nnoremap <leader>h :wincmd h<CR> 
 nnoremap <leader>j :wincmd j<CR>
