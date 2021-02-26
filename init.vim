@@ -22,6 +22,9 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 let mapleader = " "
 let maplocalleader=","
 
+" clear after search:
+nnoremap <Leader><space> :noh<cr>
+
 nnoremap <leader>h :wincmd h<CR> 
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
@@ -45,11 +48,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 " interactive evaluation clojure:
 Plug 'Olical/conjure', {'tag': 'v4.14.1'}
-
 call plug#end()
 
 colorscheme gruvbox 
-" colorscheme dracula 
 set background=dark
 let g:lightline = {}
 let g:lightline.colorscheme = 'gruvbox'
