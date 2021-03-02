@@ -17,7 +17,7 @@ compinit
 # Enable colors and change prompt:
 # autoload -U colors && colors
 # PS1="%B%{$fg[white]%}[%{$fg[white]%}%n%{$fg[white]%}@%{$fg[white]%}%M %{$fg[white]%}%~%{$fg[white]%}]%{$reset_color%}$%b "
-PROMPT='%n@%m %(4~|.../%3~|%~) '
+PROMPT='[%n@%m] %(4~|.../%3~|%~) '
 
 # vi mode
 bindkey -v
@@ -29,6 +29,7 @@ source ~/antigen.zsh
 # load:
 
 antigen bundle git
+antigen bundle lein
 antigen bundle colored-man-pages
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
