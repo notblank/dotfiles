@@ -13,8 +13,6 @@ set undodir=~/.vim/undodir
 set undofile
 set incsearch
 set relativenumber
-" https://stackoverflow.com/questions/3961859/how-to-copy-to-clipboard-in-vim
-" set clipboard=unnamedplus
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
@@ -48,6 +46,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 " interactive evaluation clojure:
 Plug 'Olical/conjure', {'tag': 'v4.14.1'}
+" REPL python, Ocaml, etc
+Plug 'metakirby5/codi.vim'
 call plug#end()
 
 colorscheme gruvbox 
@@ -66,4 +66,6 @@ endfunction
 vnoremap <silent> y y:call ClipboardYank()<cr>
 vnoremap <silent> d d:call ClipboardYank()<cr>
 nnoremap <silent> p :call ClipboardPaste()<cr>p
+
+let g:python3_host_prog = expand("/home/zee/.conda/envs/ml_stats/bin/python")
 
