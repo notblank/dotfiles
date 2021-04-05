@@ -41,6 +41,8 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen apply
 
 alias ls='ls --color=auto'
+alias ll='ls -l'
+alias la='ls -la'
 
 # opam configuration
 test -r /home/zee/.opam/opam-init/init.zsh && . /home/zee/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

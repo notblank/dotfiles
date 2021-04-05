@@ -48,6 +48,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'Olical/conjure', {'tag': 'v4.14.1'}
 " REPL python, Ocaml, etc
 Plug 'metakirby5/codi.vim'
+" Coq
+Plug 'whonore/Coqtail'
 call plug#end()
 
 colorscheme gruvbox 
