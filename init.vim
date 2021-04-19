@@ -38,6 +38,7 @@ vnoremap <leader>p "_dP
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'mbbill/undotree'
 Plug 'vim-utils/vim-man'
 Plug 'shinchu/lightline-gruvbox.vim'
@@ -53,6 +54,7 @@ Plug 'whonore/Coqtail'
 call plug#end()
 
 colorscheme gruvbox 
+"colorscheme dracula 
 set background=dark
 let g:lightline = {}
 let g:lightline.colorscheme = 'gruvbox'
