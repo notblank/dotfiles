@@ -51,6 +51,8 @@ Plug 'Olical/conjure', {'tag': 'v4.14.1'}
 Plug 'metakirby5/codi.vim'
 " Coq
 Plug 'whonore/Coqtail'
+" Stan
+Plug 'eigenfoo/stan-vim'
 call plug#end()
 
 colorscheme gruvbox 
@@ -70,6 +72,4 @@ endfunction
 vnoremap <silent> y y:call ClipboardYank()<cr>
 vnoremap <silent> d d:call ClipboardYank()<cr>
 nnoremap <silent> p :call ClipboardPaste()<cr>p
-
-let g:python3_host_prog = expand("/home/zee/.conda/envs/ml_stats/bin/python")
 
