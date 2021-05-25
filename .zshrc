@@ -89,3 +89,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# opam configuration
+test -r /home/fz/.opam/opam-init/init.zsh && . /home/fz/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

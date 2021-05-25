@@ -32,6 +32,8 @@ nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <Leader>ps :Rg<SPACE>
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
+nnoremap <Leader>hp :resize +5<CR>
+nnoremap <Leader>hm :resize -5<CR>
 
 " THE BEST REMAP:
 vnoremap <leader>p "_dP 
@@ -53,6 +55,8 @@ Plug 'metakirby5/codi.vim'
 Plug 'whonore/Coqtail'
 " Stan
 Plug 'eigenfoo/stan-vim'
+" R REPL
+Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 call plug#end()
 
 colorscheme gruvbox 
@@ -73,3 +77,5 @@ vnoremap <silent> y y:call ClipboardYank()<cr>
 vnoremap <silent> d d:call ClipboardYank()<cr>
 nnoremap <silent> p :call ClipboardPaste()<cr>p
 
+"R-nvim
+let R_assign_map = "--"
