@@ -79,3 +79,5 @@ nnoremap <silent> p :call ClipboardPaste()<cr>p
 
 "R-nvim
 let R_assign_map = "--"
+
+
