@@ -27,16 +27,20 @@ nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
-nnoremap <leader>u :UndotreeShow<CR>
-nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+nnoremap <leader>u :UndotreeShow<CR> nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <Leader>ps :Rg<SPACE>
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
 nnoremap <Leader>hp :resize +5<CR>
 nnoremap <Leader>hm :resize -5<CR>
 
+"(R)eplace all
+"https://vi.stackexchange.com/questions/13689/how-to-find-and-replace-in-vim-without-having-to-type-the-original-word
+nnoremap <leader>rr yiw:%s/\<<C-r>"\>//g<left><left>
+
 " THE BEST REMAP:
 vnoremap <leader>p "_dP 
+
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'morhetz/gruvbox'
@@ -57,6 +61,10 @@ Plug 'whonore/Coqtail'
 Plug 'eigenfoo/stan-vim'
 " R REPL
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
+" latex:
+Plug 'lervag/vimtex'
+" send-to-window:
+Plug 'karoliskoncevicius/vim-sendtowindow'
 call plug#end()
 
 colorscheme gruvbox 
@@ -80,4 +88,53 @@ nnoremap <silent> p :call ClipboardPaste()<cr>p
 "R-nvim
 let R_assign_map = "--"
 
+" lateX:
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+
+" terminal for neovim:
+
+" open terminal:
+map <Leader>tt :new term://zsh<CR>
+" exit insert when in terminal:
+tnoremap <Esc> <C-\><C-n>
+
+" window Splits
+set splitbelow splitright
+" remap splits navigation to just CTRL + hjkl
+" Terminal mode:
+tnoremap <leader>h <c-\><c-n><c-w>h
+tnoremap <leader>j <c-\><c-n><c-w>j
+tnoremap <leader>k <c-\><c-n><c-w>k
+tnoremap <leader>l <c-\><c-n><c-w>l
+" Insert mode:
+inoremap <leader>h <Esc><c-w>h
+inoremap <leader>j <Esc><c-w>j
+inoremap <leader>k <Esc><c-w>k
+inoremap <leader>l <Esc><c-w>l
+" Visual mode:
+vnoremap <leader>h <Esc><c-w>h
+vnoremap <leader>j <Esc><c-w>j
+vnoremap <leader>k <Esc><c-w>k
+vnoremap <leader>l <Esc><c-w>l
+" Normal mode:
+nnoremap <leader>h <c-w>h
+nnoremap <leader>j <c-w>j
+nnoremap <leader>k <c-w>k
+nnoremap <leader>l <c-w>l
+
+" sendtowindow remaps:
+let g:sendtowindow_use_defaults=0
+
+nmap <leader>L <Plug>SendRight
+xmap <leader>L <Plug>SendRightV
+nmap <leader>H <Plug>SendLeft
+xmap <leader>H <Plug>SendLeftV
+nmap <leader>K <Plug>SendUp
+xmap <leader>K <Plug>SendUpV
+nmap <leader>J <Plug>SendDown
+xmap <leader>J <Plug>SendDownV
 

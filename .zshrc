@@ -91,3 +91,5 @@ unset __conda_setup
 
 # opam configuration
 test -r /home/fz/.opam/opam-init/init.zsh && . /home/fz/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
