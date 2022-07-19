@@ -49,7 +49,7 @@ Plug 'mbbill/undotree'
 Plug 'vim-utils/vim-man'
 Plug 'shinchu/lightline-gruvbox.vim'
 " git plugins
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 " interactive evaluation clojure:
 Plug 'Olical/conjure', {'tag': 'v4.14.1'}
