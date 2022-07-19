@@ -44,7 +44,6 @@ vnoremap <leader>p "_dP
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'morhetz/gruvbox'
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'mbbill/undotree'
 Plug 'vim-utils/vim-man'
 Plug 'shinchu/lightline-gruvbox.vim'
@@ -72,14 +71,6 @@ colorscheme gruvbox
 set background=dark
 let g:lightline = {}
 let g:lightline.colorscheme = 'gruvbox'
-
-" copy-paste?
-function! ClipboardYank()
-  call system('xclip -i -selection clipboard', @@)
-endfunction
-function! ClipboardPaste()
-  let @@ = system('xclip -o -selection clipboard')
-endfunction
 
 vnoremap <silent> y y:call ClipboardYank()<cr>
 vnoremap <silent> d d:call ClipboardYank()<cr>
