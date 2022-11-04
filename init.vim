@@ -22,6 +22,7 @@ let maplocalleader=","
 
 " clear after search:
 nnoremap <Leader><space> :noh<cr>
+" copying something to the clipboard register you type "*y
 
 nnoremap <leader>h :wincmd h<CR> 
 nnoremap <leader>j :wincmd j<CR>
@@ -48,6 +49,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'mbbill/undotree'
 Plug 'vim-utils/vim-man'
 Plug 'shinchu/lightline-gruvbox.vim'
+Plug 'mattn/emmet-vim'
 " git plugins
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
@@ -59,12 +61,17 @@ Plug 'metakirby5/codi.vim'
 Plug 'whonore/Coqtail'
 " Stan
 Plug 'eigenfoo/stan-vim'
-" R REPL
-Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 " latex:
 Plug 'lervag/vimtex'
 " send-to-window:
 Plug 'karoliskoncevicius/vim-sendtowindow'
+" add this line to your .vimrc file
+Plug 'mattn/emmet-vim'
+" fzf
+" https://www.youtube.com/watch?v=on1AzaZzQ7k
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
 call plug#end()
 
 colorscheme gruvbox 
@@ -73,20 +80,9 @@ set background=dark
 let g:lightline = {}
 let g:lightline.colorscheme = 'gruvbox'
 
-" copy-paste?
-function! ClipboardYank()
-  call system('xclip -i -selection clipboard', @@)
-endfunction
-function! ClipboardPaste()
-  let @@ = system('xclip -o -selection clipboard')
-endfunction
-
-vnoremap <silent> y y:call ClipboardYank()<cr>
-vnoremap <silent> d d:call ClipboardYank()<cr>
-nnoremap <silent> p :call ClipboardPaste()<cr>p
-
-"R-nvim
-let R_assign_map = "--"
+" emmet only for ...
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,php EmmetInstall
 
 " lateX:
 let g:tex_flavor='latex'
