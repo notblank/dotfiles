@@ -41,6 +41,13 @@ nnoremap <leader>rr yiw:%s/\<<C-r>"\>//g<left><left>
 " THE BEST REMAP:
 vnoremap <leader>p "_dP 
 
+" copy- paste
+function! ClipboardYank()
+    call system('xclip -i -selection clipboard', @@)
+endfunction
+function! ClipboardPaste()
+    let @@ = system('xclip -o -selection clipboard')
+endfunction
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'morhetz/gruvbox'
