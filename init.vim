@@ -24,24 +24,12 @@ let maplocalleader=","
 nnoremap <Leader><space> :noh<cr>
 " copying something to the clipboard register you type "*y
 
-nnoremap <leader>h :wincmd h<CR> 
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
-nnoremap <leader>u :UndotreeShow<CR> nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
-nnoremap <Leader>ps :Rg<SPACE>
-nnoremap <Leader>+ :vertical resize +5<CR>
-nnoremap <Leader>- :vertical resize -5<CR>
-nnoremap <Leader>hp :resize +5<CR>
-nnoremap <Leader>hm :resize -5<CR>
-
 "(R)eplace all
 "https://vi.stackexchange.com/questions/13689/how-to-find-and-replace-in-vim-without-having-to-type-the-original-word
 nnoremap <leader>rr yiw:%s/\<<C-r>"\>//g<left><left>
 
 " THE BEST REMAP:
 vnoremap <leader>p "_dP 
-
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'morhetz/gruvbox'
@@ -50,7 +38,9 @@ Plug 'vim-utils/vim-man'
 Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'mattn/emmet-vim'
 " git plugins
-" Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
+Plug 'mhinz/vim-signify'
+"
 Plug 'vim-airline/vim-airline'
 " interactive evaluation clojure:
 Plug 'Olical/conjure', {'tag': 'v4.14.1'}
@@ -101,6 +91,19 @@ tnoremap <Esc> <C-\><C-n>
 set splitbelow splitright
 " remap splits navigation to just CTRL + hjkl
 
+" window splits
+nnoremap <leader>vs :vsplit<CR>
+
+nnoremap <leader>h :wincmd h<CR> 
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>u :UndotreeShow<CR> nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+nnoremap <Leader>+ :vertical resize +5<CR>
+nnoremap <Leader>- :vertical resize -5<CR>
+nnoremap <Leader>hp :resize +5<CR>
+nnoremap <Leader>hm :resize -5<CR>
+
 " Visual mode:
 vnoremap <leader>h <Esc><c-w>h
 vnoremap <leader>j <Esc><c-w>j
@@ -124,4 +127,9 @@ nmap <leader>K <Plug>SendUp
 xmap <leader>K <Plug>SendUpV
 nmap <leader>J <Plug>SendDown
 xmap <leader>J <Plug>SendDownV
+
+" fzf remaps
+map <leader>b :Buffers<CR>
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>g :Rg<CR>
 
