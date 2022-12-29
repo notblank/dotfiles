@@ -17,20 +17,6 @@ set relativenumber
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
-let mapleader = " "
-let maplocalleader=","
-
-" clear after search:
-nnoremap <Leader><space> :noh<cr>
-" copying something to the clipboard register you type "*y
-
-"(R)eplace all
-"https://vi.stackexchange.com/questions/13689/how-to-find-and-replace-in-vim-without-having-to-type-the-original-word
-nnoremap <leader>rr yiw:%s/\<<C-r>"\>//g<left><left>
-
-" THE BEST REMAP:
-vnoremap <leader>p "_dP 
-
 call plug#begin('~/.config/nvim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'mbbill/undotree'
@@ -61,6 +47,12 @@ Plug 'mattn/emmet-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
+" comments:
+" Plug 'numToStr/Comment.nvim' "easy comments.
+" dap:
+" Plug 'mfussenegger/nvim-dap'
+" treesitter (highlight):
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 colorscheme gruvbox 
@@ -80,10 +72,22 @@ let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
 
+let mapleader = " "
+let maplocalleader=","
+
+" clear after search:
+nnoremap <Leader><space> :noh<cr>
+" copying something to the clipboard register you type "*y
+
+"(R)eplace all
+"https://vi.stackexchange.com/questions/13689/how-to-find-and-replace-in-vim-without-having-to-type-the-original-word
+nnoremap <leader>rr yiw:%s/\<<C-r>"\>//g<left><left>
+
+" THE BEST REMAP:
+vnoremap <leader>p "_dP 
+
 " terminal for neovim:
 
-" open terminal:
-map <Leader>tt :new term://zsh<CR>
 " exit insert when in terminal:
 tnoremap <Esc> <C-\><C-n>
 
@@ -116,6 +120,8 @@ nnoremap <leader>j <c-w>j
 nnoremap <leader>k <c-w>k
 nnoremap <leader>l <c-w>l
 
+" open terminal:
+map <Leader>tt :new term://zsh<CR>
 " sendtowindow remaps:
 let g:sendtowindow_use_defaults=0
 

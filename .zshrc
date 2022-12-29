@@ -19,10 +19,21 @@ compinit
 # startx on startup
 [[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1
 
-# Enable colors and change prompt:
-# autoload -U colors && colors
-# PS1="%B%{$fg[white]%}[%{$fg[white]%}%n%{$fg[white]%}@%{$fg[white]%}%M %{$fg[white]%}%~%{$fg[white]%}]%{$reset_color%}$%b "
-PROMPT='[%n@%m] %(4~|.../%3~|%~) '
+# Simple prompt:
+# PROMPT='[%n@%m] %(4~|.../%3~|%~) '
+
+# Modern Coder Prompt
+PROMPT='%F{green}%n%f in %F{cyan}%~%f
+ > '
+# Load version controll information
+autoload -Uz vcs_info
+precmd() {vcs_info}
+# Format the vcs_info_msg_0_ variable
+zstyle ':vcs_info:git:*' formats 'on branch %b'
+# Set branch information in the rihgt-aligned prompt
+setopt PROMPT_SUBST
+RPROMPT='%F{yellow}${vcs_info_msg_0_}%f'
+
 
 # vi mode
 bindkey -v
@@ -93,3 +104,5 @@ unset __conda_setup
 test -r /home/fz/.opam/opam-init/init.zsh && . /home/fz/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+alias sudo='nocorrect sudo -E'
